@@ -18,5 +18,6 @@ export default class Photographer extends Account {
 
   @OneToMany((type) => Post, (post: Post) => post.photographer)
   posts: Post[];
+  
   // add stuff like specialties, categories, etc
 }

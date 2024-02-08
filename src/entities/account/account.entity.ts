@@ -1,6 +1,8 @@
-import { BaseEntity, Column, Index, OneToMany, PrimaryColumn } from "typeorm";
+import { BaseEntity, Column, Entity, Index, OneToMany, PrimaryColumn } from "typeorm";
 
 import commentEntity from "../comment.entity";
+
+@Entity()
 export default abstract class Account extends BaseEntity {
   // @Index("account_id_index")
   @PrimaryColumn({
@@ -30,5 +32,5 @@ export default abstract class Account extends BaseEntity {
     (type) => commentEntity,
     (comment: commentEntity) => comment.content
   )
-  comments: Comment[];
+  comments: commentEntity[];
 }

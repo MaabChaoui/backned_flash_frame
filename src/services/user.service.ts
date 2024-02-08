@@ -45,11 +45,11 @@ export const updateUserPassword = async (id: string, newPassword: string) => {
 
 export const findPostsByID = async (id: string) => {
   try {
-    const user = await findUserById(id);
-    console.log("findPostsByID returned: ", user)
+    const ph = await findUserById(id);
+    console.log("findPostsByID returned: ", ph);
     await postRepository.find({
       where: {
-        user: { id: user ? user.id : "" },
+        photographer: { id: ph ? ph.id : "" },
       },
     });
   } catch (err: any) {

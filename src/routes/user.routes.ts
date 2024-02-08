@@ -1,5 +1,5 @@
 import express from "express";
-import { getFeedController, getPostsContoller } from "../controllers/user.controller";
+import { getFeedController, getPostsContoller } from "../controllers/user.controllers";
 
 const router = express.Router();
 

@@ -7,6 +7,7 @@ import cors from "cors";
 import { AppDataSource } from "./utils/data-source";
 import AppError from "./utils/appError";
 import validateEnv from "./utils/validateEnv";
+import router from "./routes/user.routes";
 // import redisClient from "./utils/connectRedis";
 
 AppDataSource.initialize()
@@ -35,12 +36,13 @@ AppDataSource.initialize()
       })
     );
     // ROUTES
+    app.use("/api", router);
 
     // HEALTH CHECKER
     app.get("/api/healthchecker", async (_, res: Response) => {
       //const message = await redisClient.get("try");
       const message = "Welcome to the FlashFrame API!";
-      
+
       res.status(200).json({
         status: "success",
         message,

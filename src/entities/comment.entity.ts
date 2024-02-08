@@ -10,5 +10,5 @@ export default class Comment extends Model {
   content: string;
 
   @ManyToOne((type) => Account, (acc) => acc.comments, { nullable: false })
-  account: User;
+  account: Account;
 }
